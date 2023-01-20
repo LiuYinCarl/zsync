@@ -47,7 +47,7 @@ func CalcFileMd5(srcCh <-chan fileInfo, resCh chan<- fileInfo) {
 		select {
 		case _fileInfo := <- srcCh:
 			if _fileInfo == emptyFileInfo {
-				return // the main groutine is leave, just stop
+				return // the main coroutine is leave, just stop.
 			}
 			pFile, err := os.Open(_fileInfo.fullPath)
 			if err != nil {
